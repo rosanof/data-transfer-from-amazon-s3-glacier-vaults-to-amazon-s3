@@ -157,13 +157,15 @@ NOTE: The vault access policy is additive — it grants cross-account access wit
 
 ##### 2. Deploy the solution with the source vault account ID
 
-Pass the `SourceVaultAccountIdParameter` during deployment:
+Make sure "solution" is your project name, i.e. "data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3". Pass the `SourceVaultAccountIdParameter` and `DestinationBucketParameter` during deployment:
 
     npx cdk deploy solution \
       --parameters DestinationBucketParameter=my-output-bucket-name \
       --parameters SourceVaultAccountIdParameter=123456789012
 
 Replace `123456789012` with the 12-digit AWS account ID that owns the source Glacier vault.
+
+Replace `my-output-bucket-name' with the name of the destination S3 bucket.
 
 When `SourceVaultAccountIdParameter` is left empty (the default), the solution behaves identically to a same-account transfer.
 
